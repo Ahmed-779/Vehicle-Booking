@@ -1,0 +1,265 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-gradient-to-br from-primary-50 via-white to-accent-50/30 min-h-screen;
+    @apply text-gray-800 antialiased;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary-300 rounded-full;
+    transition: background 0.2s;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-400;
+  }
+}
+
+/* Component styles */
+@layer components {
+  /* Pill button */
+  .btn-pill {
+    @apply px-6 py-3 rounded-full font-semibold;
+    @apply transition-all duration-200 ease-out;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .btn-primary {
+    @apply btn-pill bg-primary-500 text-white;
+    @apply hover:bg-primary-600 hover:shadow-glow hover:-translate-y-0.5;
+    @apply focus:ring-primary-400;
+    @apply active:translate-y-0 active:shadow-none;
+  }
+  
+  .btn-secondary {
+    @apply btn-pill bg-white text-primary-600 border-2 border-primary-200;
+    @apply hover:border-primary-400 hover:bg-primary-50 hover:-translate-y-0.5;
+    @apply focus:ring-primary-300;
+    @apply active:translate-y-0;
+  }
+  
+  .btn-accent {
+    @apply btn-pill bg-accent-500 text-white;
+    @apply hover:bg-accent-600 hover:shadow-glow-accent hover:-translate-y-0.5;
+    @apply focus:ring-accent-400;
+    @apply active:translate-y-0 active:shadow-none;
+  }
+  
+  .btn-danger {
+    @apply btn-pill bg-red-500 text-white;
+    @apply hover:bg-red-600 hover:-translate-y-0.5;
+    @apply focus:ring-red-400;
+    @apply active:translate-y-0;
+  }
+  
+  .btn-ghost {
+    @apply btn-pill bg-transparent text-gray-600;
+    @apply hover:bg-gray-100 hover:text-gray-800;
+    @apply focus:ring-gray-300;
+  }
+  
+  /* Card styles */
+  .card {
+    @apply bg-white rounded-3xl shadow-soft p-6;
+    @apply transition-all duration-300 ease-out;
+  }
+  
+  .card-hover {
+    @apply hover:shadow-soft-lg hover:-translate-y-1;
+  }
+  
+  /* Input styles */
+  .input {
+    @apply w-full px-4 py-3 rounded-2xl border-2 border-gray-200;
+    @apply bg-white text-gray-800;
+    @apply transition-all duration-200;
+    @apply focus:outline-none focus:border-primary-400 focus:ring-2 focus:ring-primary-100;
+    @apply placeholder:text-gray-400;
+  }
+  
+  .input-error {
+    @apply border-red-300 focus:border-red-400 focus:ring-red-100;
+  }
+  
+  /* Label styles */
+  .label {
+    @apply block text-sm font-semibold text-gray-700 mb-2;
+  }
+  
+  /* Badge styles */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  .badge-primary {
+    @apply badge bg-primary-100 text-primary-700;
+  }
+  
+  .badge-accent {
+    @apply badge bg-accent-100 text-accent-700;
+  }
+  
+  .badge-success {
+    @apply badge bg-success-100 text-success-700;
+  }
+}
+
+/* FullCalendar custom styles */
+@layer utilities {
+  .fc {
+    @apply font-sans;
+  }
+  
+  .fc-theme-standard .fc-scrollgrid {
+    border: none !important;
+  }
+  
+  .fc .fc-daygrid-day {
+    @apply transition-colors duration-200;
+  }
+  
+  .fc .fc-daygrid-day:hover {
+    @apply bg-primary-50/50;
+  }
+  
+  .fc .fc-daygrid-day-frame {
+    @apply min-h-[100px];
+  }
+  
+  .fc .fc-col-header-cell {
+    @apply bg-primary-50/50 font-semibold text-primary-700 py-3;
+    @apply first:rounded-tl-2xl last:rounded-tr-2xl;
+  }
+  
+  .fc .fc-daygrid-day-number {
+    @apply text-gray-600 font-medium p-2;
+  }
+  
+  .fc .fc-day-today {
+    @apply bg-primary-100/50 !important;
+  }
+  
+  .fc .fc-day-today .fc-daygrid-day-number {
+    @apply bg-primary-500 text-white rounded-full w-8 h-8 flex items-center justify-center;
+  }
+  
+  .fc .fc-event {
+    @apply rounded-xl border-none px-2 py-1 text-sm font-medium cursor-pointer;
+    @apply transition-transform duration-200;
+    @apply hover:scale-[1.02];
+  }
+  
+  .fc .fc-event-main {
+    @apply overflow-hidden text-ellipsis whitespace-nowrap;
+  }
+  
+  .fc .fc-timegrid-slot {
+    @apply h-12 border-gray-100 !important;
+  }
+  
+  .fc .fc-timegrid-slot-label {
+    @apply text-xs text-gray-500 font-medium;
+  }
+  
+  .fc .fc-timegrid-event {
+    @apply rounded-xl border-none;
+  }
+  
+  .fc .fc-toolbar-title {
+    @apply text-2xl font-display font-bold text-gray-800;
+  }
+  
+  .fc .fc-button {
+    @apply rounded-full px-4 py-2 font-semibold text-sm;
+    @apply transition-all duration-200;
+    @apply border-2 !important;
+  }
+  
+  .fc .fc-button-primary {
+    @apply bg-white text-primary-600 border-primary-200 !important;
+    @apply hover:bg-primary-50 hover:border-primary-400 !important;
+  }
+  
+  .fc .fc-button-primary:disabled {
+    @apply opacity-50 !important;
+  }
+  
+  .fc .fc-button-primary:not(:disabled).fc-button-active {
+    @apply bg-primary-500 text-white border-primary-500 !important;
+  }
+  
+  .fc .fc-button:focus {
+    @apply ring-2 ring-primary-200 ring-offset-2 !important;
+    box-shadow: none !important;
+  }
+  
+  .fc .fc-prev-button,
+  .fc .fc-next-button {
+    @apply px-3 !important;
+  }
+  
+  /* Animated background blobs */
+  .blob {
+    @apply absolute rounded-full filter blur-3xl opacity-30;
+    @apply animate-pulse-soft;
+  }
+}
+
+/* Modal backdrop */
+.modal-backdrop {
+  @apply fixed inset-0 bg-black/40 backdrop-blur-sm z-40;
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* Modal content */
+.modal-content {
+  @apply fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50;
+  @apply bg-white rounded-3xl shadow-soft-lg p-6 w-full max-w-md;
+  @apply max-h-[90vh] overflow-y-auto;
+  animation: scaleIn 0.2s ease-out;
+}
+
+/* Toast styles */
+.toast-custom {
+  @apply rounded-2xl shadow-soft-lg !important;
+}
+
+/* Page transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-exit {
+  opacity: 1;
+}
+
+.page-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
