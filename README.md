@@ -209,10 +209,6 @@ FRONTEND_URL="http://localhost:5173"
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📄 License
-
-This project is licensed under the MIT License.
-
 ---
 
 Made with ❤️ for teams who need simple vehicle booking
